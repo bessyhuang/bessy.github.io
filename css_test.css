@@ -1,0 +1,59 @@
+	html{
+		font-family:Microsoft JhengHei;
+		text-align:center;
+	}
+
+	* {
+	    box-sizing: border-box;
+	} 
+	.header {
+		    background-color: #9933cc;
+    		color: #ffffff;
+		width: 900px;		/* 置中 => width: 900px; margin: 0 auto; */
+		margin: 0 auto;		/* 外邊距 */
+	    padding: 15px;		/* 內邊距 */
+	    display: block;		/* 橫向整條填滿 */
+	}
+	.content { 			/* 用來塞內容 */
+		width: 900px;
+		margin: 0 auto;
+		display: block;
+	}
+	.menu {
+	    float: left;
+	}
+		.menu ul {
+		    margin: 0;
+		    padding: 0;
+		}
+		.menu li {
+		    padding: 8px;
+		    margin-bottom: 7px;
+		    background-color: #33b5e5;
+		    color: #ffffff;
+		    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		    	display: inline-block;
+		}
+		.menu li:hover {
+		    background-color: #0099cc;
+		}
+	.main {
+	    float: right;
+	}
+
+	[class*="col-"] {        /* 共同的部分提出來 */
+	    padding: 15px;
+	    display: inline-block;
+	}
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}

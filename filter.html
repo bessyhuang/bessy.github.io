@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+	<style>
+		#"goTop" { text-decoration:none; font-family:Verdana, Geneva, sans-serif; text-align: center;}
+		#"goTop":hover{ color:#F00;}
+	</style>
+
+	<script>
+		(function(document) {
+			'use strict';
+
+			// 建立 LightTableFilter
+			var LightTableFilter = (function(Arr) {
+
+			var _input;
+
+			// 資料輸入事件處理函數
+			function _onInputEvent(e) {
+			_input = e.target;
+			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+			Arr.forEach.call(tables, function(table) {
+			Arr.forEach.call(table.tBodies, function(tbody) {
+			Arr.forEach.call(tbody.rows, _filter);
+			});
+			});
+			}
+
+			// 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+			function _filter(row) {
+			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+			}
+
+			return {
+			// 初始化函數
+			init: function() {
+			var inputs = document.getElementsByClassName('light-table-filter');
+			Arr.forEach.call(inputs, function(input) {
+			  input.oninput = _onInputEvent;
+			});
+			}
+			};
+			})(Array.prototype);
+
+			// 網頁載入完成後，啟動 LightTableFilter
+			document.addEventListener('readystatechange', function() {
+			if (document.readyState === 'complete') {
+			LightTableFilter.init();
+			}
+			});
+
+			})(document);
+	</script>
+
+
+</head>
+<body>
+	<div class="alert alert-warning container col-md-8 col-md-offset-2" role="alert">
+	<form>
+		<div class="form-group container col-md-3 col-md-offset-2">
+			<label>搜尋：</label>
+			<input type="search" class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字">
+			<small id="keyword" class="form-text text-muted">Please enter any keywords</small>
+		</div>
+	</form>
+	</div>
+
+	<table class="order-table table container">
+	  <thead>
+	    <tr>
+	      <th>姓名：</th>
+	      <th>職稱：</th>
+	      <th>學歷：</th>
+	      <th>專長：</th>
+	      <th >電話：</th>
+	      <th>E-Mail：<br>Website：</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+			<td>黃孝雲</td>
+			<td>副教授<br>(系主任)</td>
+			<td>美國匹茲堡大學<br>統計博士</td>
+			<td>影像辨識、機械學習與資料探勘、時間序列</td>
+			<td>02-2905-3940<br>(辦公室SL415)</td>
+			<td><a href="mailto:stat2021@mail.fju.edu.tw">stat2021@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>邵曰仁</td>
+			<td>教授</td>
+			<td>美國紐約州壬色列理工學院<br>決策科學與工程系統博士</td>
+			<td>品質管制、預測方法</td>
+			<td>02-2905-2647<br>(辦公室SL215)</td>
+			<td><a href="mailto:stat1003@mail.fju.edu.tw">stat1003@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>侯家鼎</td>
+			<td>教授</td>
+			<td>國立政治大學統計博士</td>
+			<td>遺傳統計、聯立統計推論</td>
+			<td>02-2905-2608、2764<br>(辦公室LM205-2、SL219)</td>
+			<td><a href="mailto:stat0002@mail.fju.edu.tw">stat0002@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>陳瑞照</td>
+			<td>教授</td>
+			<td>美國德州農工大學<br>統計博士</td>
+			<td>調查設計與分析、樣調平滑、迴歸分析、無母數迴歸</td>
+			<td>02-2905-2937<br>(辦公室SL236)</td>
+			<td><a href="mailto:stat1014@mail.fju.edu.tw">stat1014@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>梁德馨</td>
+			<td>教授</td>
+			<td>淡江大學管理科學博士</td>
+			<td>抽樣調查理論與實務、行銷研究、 顧客關係管理、資料採礦</td>
+			<td>02-2905-2974<br>(辦公室SL240)</td>
+			<td><a href="mailto:stat1013@mail.fju.edu.tw">stat1013@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>劉正夫</td>
+			<td>教授</td>
+			<td>國立中央大學<br>數學博士</td>
+			<td>統計、機率</td>
+			<td>02-2905-2762<br>(辦公室SL227)</td>
+			<td><a href="mailto:stat1011@mail.fju.edu.tw">stat1011@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>吳建和</td>
+			<td>副教授</td>
+			<td>英國曼徹斯特大學<br>資訊學博士</td>
+			<td>物件導向技術、智慧型系統、資料庫管理</td>
+			<td>02-2905-3937<br>(辦公室SL463)</td>
+			<td><a href="mailto:stat2016@yahoo.co.jp">stat2016@yahoo.co.jp</a><br><a href="http://140.136.247.242/~stat2016/" target="_blank">http://140.136.247.242/~stat2016/</a></td>
+	    </tr>
+	    <tr>
+			<td>莊瑞珠</td>
+			<td>副教授</td>
+			<td>美國紐約州立大學石溪分校<br>統計博士</li></td>
+			<td>統計計算、多變量分析</td>
+			<td>02-2905-2758<br>(辦公室SL232)</td>
+			<td><a href="mailto:stat1007@mail.fju.edu.tw">stat1007@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>盧宏益</td>
+			<td>副教授<br>(兼 統計諮詢顧問中心主持人)</td>
+			<td>國立政治大學<br>統計博士</li></td>
+			<td>序貫分析 教育測驗</td>
+			<td>02-2905-2274<br>(辦公室SL207)</td>
+			<td><a href="mailto:069201@mail.fju.edu.tw">069201@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>杜逸寧</td>
+			<td>副教授</td>
+			<td>國立政治大學資訊管理學系<br>資訊管理學博士</li></td>
+			<td>資料探勘、文字探勘、人工智慧、機器學習、資訊檢索</td>
+			<td>02-2905-2990<br>(辦公室SL465)</td>
+			<td><a href="mailto:082435@mail.fju.edu.tw">082435@mail.fju.edu.tw</a><br><a href="https://sites.google.com/view/yiningtu" target="_blank">https://sites.google.com/view/yiningtu</a></td>
+	    </tr>
+	    <tr>
+			<td>魏嘉華</td>
+			<td>副教授</td>
+			<td>輔仁大學宗教學系 博士</li></td>
+			<td>人生哲學、宗教學、信理神學</td>
+			<td>02-2905-2443<br>(辦公室SF842)</td>
+			<td><a href="mailto:041881@mail.fju.edu.tw">041881@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>李鍾斌</td>
+			<td>助理教授<br>(兼 大數據產業智慧學分學程召集人)</td>
+			<td>國立交通大學資訊管理研究所<br>資訊管理學博士</li></td>
+			<td>資訊管理、電子商務、資訊安全</td>
+			<td>02-2905-2798<br>(辦公室SL233)</td>
+			<td><a href="mailto:071635@mail.fju.edu.tw">071635@mail.fju.edu.tw</a></td>
+	    </tr>
+	    <tr>
+			<td>蔡嘉仁</td>
+			<td>助理教授</td>
+			<td>國立台灣大學<br>生物統計博士</li></td>
+			<td>測量誤差模型、量尺測驗分析、多變量統計分析</td>
+			<td>02-2905-3193<br>(辦公室SL468)</td>
+			<td><a href="mailto:141628@mail.fju.edu.tw">141628@mail.fju.edu.tw</a><br><a href="https://sites.google.com/view/jrtsai/" target="_blank">https://sites.google.com/view/jrtsai/</a></td>
+	    </tr>
+	    <tr>
+			<td>蘇榮弘</td>
+			<td>助理教授</td>
+			<td>國立交通大學<br>工業工程與管理學博士</li></td>
+			<td>統計實務應用、品質管理與管制、存貨管理、工業管理</td>
+			<td>02-2905-3194<br>(辦公室SL474)</td>
+			<td><a href="mailto:141637@mail.fju.edu.tw">141637@mail.fju.edu.tw</a><br><a href="https://sites.google.com/view/jrtsai/" target="_blank">https://sites.google.com/view/jrtsai/</a></td>
+	    </tr>
+	    <tr>
+			<td>邵皓強</td>
+			<td>助理教授</td>
+			<td>國立清華大學<br>電機系博士</td>
+			<td>影像處理、小波分析、自動化光學檢測、深度學習</td>
+			<td>02-2905-3974<br>(辦公室SL217)</td>
+			<td><a href="mailto:142702@mail.fju.edu.tw">142702@mail.fju.edu.tw</a></td>
+	    </tr>
+	  </tbody>
+</table>
+
+
+
+<div align="center"><a href="#" id="goTop">go top</a></div>
+<br><br><br>
+
+<script>
+	$(function(){
+		$("#goTop").click(function(){
+			$("html,body").animate({scrollTop:0},900);
+			return false;
+		});
+	});
+</script>
+
+</body>
+</html>

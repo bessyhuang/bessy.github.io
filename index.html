@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pchome 商品頁</title>
+
+	<script language="javascript">
+		function ShowMeDate() {
+		　var Today=new Date();
+		　alert("今天日期是 " + Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日");
+			
+		}
+
+		function myItem() {
+			x = document.getElementById("item_name").innerHTML;
+			alert(x);
+
+		    console.log(document.getElementById( "item_name" ));
+
+		    document.getElementById("item_name").innerHTML = "我改變了~~  Hello World";
+		}
+	</script>
+
+</head>
+<body>
+	
+    <a target="_blank" href="https://24h.pchome.com.tw/prod/DHAEDE-A9009F9IS"><img alt="Show this while image can't be displayed" src="https://c.ecimg.tw/items/DHAEDEA9009F9IS/000001_1538633404.jpg" height="200px;"/></a>
+    <button onclick="ShowMeDate()">告訴我今天日期</button>
+    <h1 title="ACER 筆電" id="item_name">ACER SF514-52T-85PC蜂蜜金</h1>
+    <button onclick="myItem()">告訴我商品名</button>
+    <h2>特色</h2>
+    <ul>
+    	<li>LCD尺寸：14’’ FHD IPS/鏡面/觸控/LED背光</li>
+		<li>處理器：i7-8550U (1.8GHz/4.0GHz) </li>
+    	<li>顯示晶片：Intel® UHD Graphics 620 </li>
+		<li>記憶體：16GB LPDDR3</li>
+        <li>硬碟：512GB SSD</li>
+    </ul>
+	<p>其他贈品：<span style="color: pink;">TESCOM大風量負離子吹風機TID450(玫瑰桃)</span></p>
+    <h2>價錢：<span style="background-color: yellow;">$41900</span></h2>
+	<div style="background-color:pink; height:110px;">
+		<h2>付款方式：</h2>
+		<ol>
+	        <li>信用卡 ATM 貨到付款</li>
+			<li>信用卡紅利折抵刷卡金<a href="https://24h.pchome.com.tw/edm/card/redeem.htm"> 多家銀行</a></li>
+			<li>PChome儲值</li>
+	    </ol>
+	</div>
+</body>
+</html>
